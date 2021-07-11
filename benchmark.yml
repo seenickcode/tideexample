@@ -1,0 +1,15 @@
+---
+
+concurrency: 50
+base: 'http://localhost:8080'
+iterations: 10000
+rampup: 2
+
+plan:
+  - name: POST some crafted JSONs
+    request:
+      url: /orders/shoes
+      method: POST
+      body: '{ "name": "Chashu", "legs": 4 }'
+      headers:
+        Content-Type: 'application/json'
